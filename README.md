@@ -12,9 +12,8 @@ head over to 'beta.openai.com' to retrieve your personal API key and set it the 
 Windows:
 ```
 $env:OPENAI_API_KEY='<api key>'
-Nix/MAC:
 ```
-
+Linux:
 ```
 export OPENAI_API_KEY=<api key>
 ```
