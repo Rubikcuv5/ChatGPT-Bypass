@@ -5,7 +5,10 @@ import json
 import os
 import sys
 import argparse
+from colorama import init, Fore, Style
+from sty import fg, bg, ef, rs
 
+OPENAI_API_KEY="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"
 
 def bypass(text):
     model = "text-davinci-003"
@@ -14,7 +17,7 @@ def bypass(text):
 
     headers = {
         "Content-Type": "application/json",
-        "Authorization": f"Bearer {os.environ['OPENAI_API_KEY']}"
+        "Authorization": f"Bearer {OPENAI_API_KEY}"
     }
     try:
         data = {
@@ -29,16 +32,21 @@ def bypass(text):
 
         result = response.json()
         txt = result["choices"][0]["text"].strip()
-        print(f"[+] INPUT : {text}")
-        print(txt)
+        print(f"=> {text}\n")
+        #print(f"\n{fg.li_green}{txt}{rs.all}") # Agrega color verde claro al texto
+        print(f"{fg(255,224,102)}Respuesta:\n {rs.all}{fg.cyan}{bg(49,55,61)}{ef.bold} {txt} {rs.all}")
     except Exception as e:
-        print(f"Bypass Exception :{e}")
+        print(f"{fg.li_red}Bypass Exception: {e}{rs.all}") # Agrega color rojo claro al texto
 
 
 def main():
     parser = argparse.ArgumentParser(description="simple bypass chatgpt")
     parser.add_argument("text",help="Enter the your cuestion")
     args = parser.parse_args()
+
+    # Cambia la fuente de la entrada de texto
+    init(autoreset=True)
+    print(f"{fg(255,224,102)}Ingresa tu pregunta: {rs.all}{fg.cyan}{bg(49,55,61)}{ef.bold} {args.text} {rs.all}")
     
     bypass(args.text)
 
@@ -46,3 +54,4 @@ def main():
             
 if __name__ == "__main__":
     main()
+
