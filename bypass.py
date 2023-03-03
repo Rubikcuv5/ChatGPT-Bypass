@@ -8,7 +8,7 @@ import argparse
 from colorama import init, Fore, Style
 from sty import fg, bg, ef, rs
 
-OPENAI_API_KEY="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"
+OPENAI_API_KEY="YOUR-API-KEY"
 
 def bypass(text):
     model = "text-davinci-003"
