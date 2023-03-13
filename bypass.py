@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 
 import requests
 import json
@@ -17,7 +17,7 @@ def bypass(text):
 
     headers = {
         "Content-Type": "application/json",
-        "Authorization": f"Bearer {OPENAI_API_KEY}"
+        "Authorization": f"Bearer {os.environ['OPENAI_API_KEY']}"
     }
     try:
         data = {
